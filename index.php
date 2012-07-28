@@ -118,7 +118,7 @@ class AyMapTest
 			$coordinates[]	= implode(',', $coordinate);
 		}
 		
-		$im		= ['convert -size ' . escapeshellarg($this->map->container['width'] . 'x' . $this->map->container['height']) . ' xc:black -set colorspace RGB'];
+		$im		= array('convert -size ' . escapeshellarg($this->map->container['width'] . 'x' . $this->map->container['height']) . ' xc:black -set colorspace RGB');
 		
 		$im[]	= '-pointsize 12 -fill white -draw "text 10,20 ' . escapeshellarg(time()) . '"';
 		
@@ -150,7 +150,7 @@ class AyMapApp
 	 */
 	public function filter($data)
 	{
-		$remove[]	= 0;
+		$remove	= array();
 	
 		for($i = 1, $j = count($data); $i < $j; $i++)
 		{
@@ -188,7 +188,7 @@ $csv	= file('journey.csv');
 
 $data	= array_map('str_getcsv', $csv);
 
-$map	= new AyMap(['lat1' => 51.533122, 'lon1' => -0.172176, 'lat2' => 51.492633, 'lon2' => -0.106215], ['width' => 740, 'height' => 740]);
+$map	= new AyMap(array('lat1' => 51.533122, 'lon1' => -0.172176, 'lat2' => 51.492633, 'lon2' => -0.106215), array('width' => 740, 'height' => 740));
 
 $app	= new AyMapApp($map);
 
