@@ -203,8 +203,6 @@ if(PHP_SAPI == 'cli')
 		$distance	+= $map->getOrthodromicDistance($data[$i-1][0], $data[$i-1][1], $data[$i][0], $data[$i][1]);
 	}
 	
-	//1000
-	
 	$end		= end($data);
 	
 	$time		= $end[2]-$data[0][2];
